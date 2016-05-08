@@ -1,0 +1,48 @@
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: block;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+
+.menu-icon {
+  @include hamburger($black, $black, 50px, 30px,  7px, 3);
+}
+
+
+
+
+.menu-principal {
+
+  @include menu-simple;
+  @include menu-base;
+
+  @include motion-ui-transitions;
+
+  @include menu-direction('vertical');
+
+  @include breakpoint(medium) {
+    @include menu-direction('horizontal');
+  }
+}
+
+
+
+
+@include mui-series {
+  // 2 second shake
+  #menu-item-25    { @include mui-queue(2s, 0s, shake); }
+  // 1 second spin with a 2 second pause
+  #menu-item-22     { @include mui-queue(1s, 2s, spin); }
+  // 1 second zoom and fade
+  #menu-item-27 { @include mui-queue(1s, 0s, fade, zoom); }
+}
+
+@include mui-series(2s) {
+  #menu-item-25  { @include mui-queue(2s, 0s, shake()); }
+  #menu-item-22   { @include mui-queue(1s, 2s, spin()); }
+  #menu-item-27 { @include mui-queue(wiggle); }
+}
